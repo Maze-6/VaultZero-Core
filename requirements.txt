@@ -1,0 +1,7 @@
+streamlit
+pycryptodome
+aiofiles
+plotly
+watchdog
+pandas
+graphviz

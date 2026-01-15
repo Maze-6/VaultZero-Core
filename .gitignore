@@ -1,0 +1,17 @@
+# Python Artifacts
+__pycache__/
+*.py[cod]
+
+# VaultZero Operational Data (Do NOT upload)
+data_storage/
+key_storage/
+registry.db
+
+# Logs & Metrics
+*.log
+*.json
+
+# Environment
+.env
+venv/
+.DS_Store

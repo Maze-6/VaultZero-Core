@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # SERVICE 1: MOURYA'S DASHBOARD
+  dashboard:
+    build: .
+    container_name: vaultzero_dashboard
+    command: streamlit run main.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app  # Maps your desktop folder to the container
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  # SERVICE 2: JEET'S WATCHDOG (Runs in background)
+  watchdog:
+    build: .
+    container_name: vaultzero_watchdog
+    command: python watchdog_service.py
+    volumes:
+      - .:/app  # Share same files as dashboard
+    environment:
+      - PYTHONUNBUFFERED=1
