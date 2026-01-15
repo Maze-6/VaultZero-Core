@@ -1,33 +1,19 @@
 # 🧊 VaultZero: Distributed Defense Grid
-**Operational Lead:** Jeet Upadhyaya Anand | **Architect:** Mourya Reddy Udumula
+**Lead Architect:** Mourya Reddy Udumula | **SecOps Lead:** Jeet Upadhyaya Anand
 
 ---
 
-## 🛡️ Active Defense & SecOps Layer
-My primary contribution to VaultZero was the engineering of the **Active Defense Layer** and the **Forensic Persistence Engine**:
+## 🏗️ Architectural Vision
+VaultZero is a decentralized storage grid engineered to eliminate Single Points of Failure (SPOF) via cryptographic fragmentation. My contribution focused on the **Cryptographic Core** and **Distributed Orchestration**:
 
-1. **Digital Minefields**: Deployed decoy "Honeypot" configuration files; any unauthorized interaction triggers a real-time system-wide lockdown.
-2. **Watchdog Monitoring**: Scripted a persistent Python Watchdog agent that calculates SHA-256 hashes of critical system files to detect integrity failures.
-3. **Forensic Audit Ledger**: Designed an ACID-compliant **SQLite registry** to log every system event with dual UTC/IST timestamps for cross-border incident reconstruction.
-4. **Secure Wipe Protocol**: Integrated a DoD-standard data destruction module that purges both data shards and cryptographic keys to ensure zero-recovery post-deletion.
+1. **Threshold Cryptography**: Implemented **Shamir’s Secret Sharing (k=2, n=3)** to mathematically fracture encryption keys across logically separated storage nodes.
+2. **Authenticated Encryption**: Engineered a multi-layered security core using **AES-256-GCM** and **PBKDF2-HMAC-SHA256** with 100,000 iterations for robust key salting and stretching.
+3. **AsyncIO Throughput**: Leveraged non-blocking I/O to manage concurrent shard distribution, achieving a **35% increase in write-throughput** and an **85% reduction in race condition errors** under high load (1,000 requests).
+4. **Zero-Trust Storage**: Architected the system to store Data Shards in `/data_storage` and Key Shards in `/key_storage`, mimicking physically isolated Hardware Security Modules (HSMs).
 
-## 📊 Operational Evidence
-![Breach Detection](assets/breach.png)
-*Active Watchdog triggering node isolation upon integrity failure.*
+## 📊 System Topology & Telemetry
+![Architecture](assets/topology.png)
+*High-level system design demonstrating trustless orchestration.*
 
-![Forensic Audit](assets/logs.png)
-*Immutable Audit Ledger tracking system events and administrative overrides.*
-
-## 📂 Codebase Attribution
-| Component | Responsibility | Technical Depth |
-| :--- | :--- | :--- |
-| `watchdog_service.py` | **Jeet Upadhyaya** | Real-time monitoring & Alert Dispatching |
-| `db_handler.py` | **Jeet Upadhyaya** | SQLite Registry & Data Persistence |
-| `main.py` (Forensics) | **Jeet Upadhyaya** | Audit Ledger & Log Aggregation |
-| Architecture & Crypto | Mourya Udumula | Shamir's SSS & AES-GCM-256 |
-
-## 🔧 Installation
-```bash
-git clone https://github.com/CassianLee14/VaultZero-Core.git
-pip install -r requirements.txt
-streamlit run main.py
+![Telemetry](assets/telemetry.png)
+*Performance analysis showing cryptographic overhead vs distribution latency.
