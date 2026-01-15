@@ -16,4 +16,23 @@ VaultZero is a decentralized storage grid engineered to eliminate Single Points 
 *High-level system design demonstrating trustless orchestration.*
 
 ![Telemetry](assets/telemetry.png)
-*Performance analysis showing cryptographic overhead vs distribution latency.
+*Performance analysis showing cryptographic overhead vs distribution latency.*
+
+## 📂 Engineering Attribution
+| Module | Lead Author | Core Technology |
+| :--- | :--- | :--- |
+| `crypto_engine.py` | **Mourya Udumula** | AES-GCM-256 & PBKDF2 Implementation |
+| `shamir_handler.py` | **Mourya Udumula** | Threshold Cryptography (2-of-3) |
+| `main.py` (Architecture)| **Mourya Udumula** | System Orchestrator & AsyncIO Dashboard |
+| Active Defense | Jeet Upadhyaya | Python Watchdogs & SQLite Registry |
+
+## 🔧 Installation
+```bash
+# Clone the architect's repository
+git clone https://github.com/Maze-6/VaultZero-Core.git
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch the Grid
+streamlit run main.py
